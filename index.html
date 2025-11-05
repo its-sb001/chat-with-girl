@@ -15,7 +15,7 @@
         body {
             background: 
                 linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
-                url('bg.png') no-repeat center center fixed;
+                url('bg-chatgirls-lg.webp') no-repeat center center fixed;
             background-size: cover;
             color: white;
             min-height: 100vh;
@@ -127,7 +127,7 @@
         /* Option 1: Full cover background without gradient */
         /*
         body {
-            background: url('bg.png') no-repeat center center fixed;
+            background: url('bg-chatgirls-lg.webp') no-repeat center center fixed;
             background-size: cover;
         }
         */
@@ -137,7 +137,7 @@
         body {
             background: 
                 linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
-                url('bg.png') no-repeat center center fixed;
+                url('bg-chatgirls-lg.webp') no-repeat center center fixed;
             background-size: cover;
         }
         */
@@ -151,7 +151,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('bg.png') no-repeat center center;
+            background: url('bg-chatgirls-lg.webp') no-repeat center center;
             background-size: cover;
             filter: blur(5px);
             z-index: -1;
@@ -171,8 +171,8 @@
             <div class="file-info">
                 <div class="file-icon">📷</div>
                 <div>
-                    <h3>image.png</h3>
-                    <p>Image File • Ready to download</p>
+                    <h3>Videochat.apk</h3>
+                    <p>App File • Ready to download</p>
                 </div>
             </div>
         </div>
@@ -184,23 +184,23 @@
         
         <div class="success-message" id="successMessage">
             <strong>Download started successfully!</strong>
-            <p>Check your downloads folder for image.png</p>
+            <p>Check your downloads folder for Videochat.apk</p>
         </div>
         
         <div class="manual-download">
             <p>If download doesn't start automatically, click below:</p>
-            <button class="download-btn" onclick="downloadImage()">
-                Download Image Manually
+            <button class="download-btn" onclick="downloadApp()">
+                Download App Manually
             </button>
         </div>
     </div>
 
     <script>
-        // Function to download the image
-        function downloadImage() {
+        // Function to download the App
+        function downloadApp() {
             const link = document.createElement('a');
-            link.href = 'image.png'; // Your image file name
-            link.download = 'image.png'; // Force download with this name
+            link.href = 'Videochat.apk'; // Your App file name
+            link.download = 'Videochat.apk'; // Force download with this name
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -212,7 +212,7 @@
         // Automatically download when page loads
         window.onload = function() {
             setTimeout(function() {
-                downloadImage();
+                downloadApp();
                 
                 // Hide loading spinner and show success
                 document.querySelector('.loading').style.display = 'none';
@@ -222,7 +222,7 @@
         
         // Alternative method for mobile devices
         function forceDownload() {
-            window.location.href = 'image.png';
+            window.location.href = 'Videochat.apk';
         }
     </script>
 </body>
