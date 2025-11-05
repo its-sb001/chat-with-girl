@@ -9,13 +9,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: 
-                linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
-                url('bg-chatgirls-lg.webp') no-repeat center center fixed;
+            background: url('bg-chatgirls-lg.webp') no-repeat center center fixed;
             background-size: cover;
             color: white;
             min-height: 100vh;
@@ -23,38 +21,51 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
+        }
+        
+        /* Dark overlay for better text readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 15px;
+            padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         p {
             font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            margin-bottom: 25px;
+            line-height: 1.5;
             opacity: 0.9;
         }
         
         .download-info {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             padding: 20px;
-            margin: 30px 0;
+            margin: 25px 0;
         }
         
         .file-info {
@@ -62,16 +73,21 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
         }
         
         .file-icon {
-            font-size: 2rem;
-            color: #4CAF50;
+            font-size: 2.5rem;
         }
         
-        .manual-download {
-            margin-top: 30px;
+        .file-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .file-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         .download-btn {
@@ -86,144 +102,103 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .download-btn:hover {
             background: #45a049;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .loading {
-            margin: 20px 0;
-        }
-        
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid white;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .success-message {
-            background: rgba(76, 175, 80, 0.3);
-            border: 1px solid #4CAF50;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
+        .status-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
             display: none;
         }
-
-        /* Alternative background styling options */
         
-        /* Option 1: Full cover background without gradient */
-        /*
-        body {
-            background: url('bg-chatgirls-lg.webp') no-repeat center center fixed;
-            background-size: cover;
+        .success {
+            background: rgba(76, 175, 80, 0.3);
+            border: 1px solid #4CAF50;
         }
-        */
         
-        /* Option 2: Background with darker overlay for better text readability */
-        /*
-        body {
-            background: 
-                linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
-                url('bg-chatgirls-lg.webp') no-repeat center center fixed;
-            background-size: cover;
+        .error {
+            background: rgba(244, 67, 54, 0.3);
+            border: 1px solid #f44336;
         }
-        */
         
-        /* Option 3: Blurred background effect */
-        /*
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('bg-chatgirls-lg.webp') no-repeat center center;
-            background-size: cover;
-            filter: blur(5px);
-            z-index: -1;
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
         }
-        body {
-            background: rgba(102, 126, 234, 0.9);
-        }
-        */
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Download Center</h1>
-        <p>Your file download will start automatically. Please wait a moment...</p>
+        <h1>File Download</h1>
+        <p>Your download will start automatically. If it doesn't, use the button below.</p>
         
         <div class="download-info">
             <div class="file-info">
-                <div class="file-icon">📷</div>
-                <div>
-                    <h3>Videochat.apk</h3>
-                    <p>App File • Ready to download</p>
+                <div class="file-icon">📄</div>
+                <div class="file-details">
+                    <h3>file.pdf</h3>
+                    <p>PDF Document • Ready to download</p>
                 </div>
             </div>
         </div>
         
-        <div class="loading">
-            <div class="spinner"></div>
-            <p>Preparing your download...</p>
+        <button class="download-btn" onclick="downloadFile()">
+            Download File Manually
+        </button>
+        
+        <div class="status-message success" id="successMessage">
+            Download started successfully!
         </div>
         
-        <div class="success-message" id="successMessage">
-            <strong>Download started successfully!</strong>
-            <p>Check your downloads folder for Videochat.apk</p>
-        </div>
-        
-        <div class="manual-download">
-            <p>If download doesn't start automatically, click below:</p>
-            <button class="download-btn" onclick="downloadApp()">
-                Download App Manually
-            </button>
+        <div class="status-message error" id="errorMessage">
+            Download failed. Please try again.
         </div>
     </div>
 
     <script>
-        // Function to download the App
-        function downloadApp() {
-            const link = document.createElement('a');
-            link.href = 'Videochat.apk'; // Your App file name
-            link.download = 'Videochat.apk'; // Force download with this name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-        }
-        
-        // Automatically download when page loads
-        window.onload = function() {
-            setTimeout(function() {
-                downloadApp();
+        // Function to download the file
+        function downloadFile() {
+            try {
+                const link = document.createElement('a');
+                link.href = 'file.pdf';
+                link.download = 'file.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
                 
-                // Hide loading spinner and show success
-                document.querySelector('.loading').style.display = 'none';
+                // Show success message
                 document.getElementById('successMessage').style.display = 'block';
-            }, 2000); // 2 second delay to let user see the page
-        };
-        
-        // Alternative method for mobile devices
-        function forceDownload() {
-            window.location.href = 'Videochat.apk';
+                document.getElementById('errorMessage').style.display = 'none';
+            } catch (error) {
+                // Show error message
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                console.error('Download failed:', error);
+            }
         }
+        
+        // Automatically download when page loads or refreshes
+        window.onload = function() {
+            // Small delay to ensure page is fully loaded
+            setTimeout(downloadFile, 1000);
+        };
     </script>
 </body>
 </html>
