@@ -3,609 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bold VideoCall - Connect Instantly</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Download Center</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
         
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: #ffeb3b;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #ffeb3b;
-        }
-        
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 0;
-            flex-wrap: wrap;
-        }
-        
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-        }
-        
-        .hero-content h1 {
-            font-size: 48px;
+        h1 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        .hero-content p {
-            font-size: 18px;
+        p {
+            font-size: 1.1rem;
             margin-bottom: 30px;
             line-height: 1.6;
             opacity: 0.9;
+        }
+        
+        .download-info {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .file-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .file-icon {
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+        
+        .manual-download {
+            margin-top: 30px;
         }
         
         .download-btn {
             display: inline-block;
-            background: #ffeb3b;
-            color: #8a2be2;
-            font-size: 18px;
+            background: #4CAF50;
+            color: white;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            margin-top: 10px;
+            border: none;
+            cursor: pointer;
         }
         
         .download-btn:hover {
-            background: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: #45a049;
+            transform: translateY(-2px);
         }
         
-        .download-btn i {
-            margin-right: 10px;
+        .loading {
+            margin: 20px 0;
         }
         
-        .hero-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .phone-mockup {
-            width: 300px;
-            height: 600px;
-            background: #333;
-            border-radius: 40px;
-            position: relative;
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
             margin: 0 auto;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            border: 8px solid #222;
         }
         
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff4081, #8a2be2);
-            position: relative;
-            overflow: hidden;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        .profile-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 20px;
-        }
-        
-        .profile {
-            background: rgba(255, 255, 255, 0.2);
+        .success-message {
+            background: rgba(76, 175, 80, 0.3);
+            border: 1px solid #4CAF50;
             border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            padding: 10px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .profile img {
-            width: 100%;
-            border-radius: 50%;
-            margin-bottom: 5px;
-            border: 2px solid white;
-        }
-        
-        .profile h4 {
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-        
-        .profile p {
-            font-size: 10px;
-            opacity: 0.8;
-        }
-        
-        .online-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #4caf50;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-        
-        .features {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .features h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-        
-        .feature-cards {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            width: 300px;
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card i {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #ffeb3b;
-        }
-        
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .testimonials {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .testimonials h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-        
-        .testimonial-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            width: 300px;
-            text-align: left;
-        }
-        
-        .testimonial-card .user {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-card .user img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            border: 2px solid white;
-        }
-        
-        .testimonial-card .user-info h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .testimonial-card .user-info p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        
-        .testimonial-card .rating {
-            color: #ffeb3b;
-            margin-bottom: 15px;
-        }
-        
-        .download-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .download-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .download-section p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .app-stats {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin-top: 50px;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat h3 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        
-        .stat p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #ffeb3b;
-        }
-        
-        .social-icons {
-            margin-bottom: 30px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: #ffeb3b;
-        }
-        
-        .copyright {
-            opacity: 0.7;
-            font-size: 14px;
-        }
-        
-        .user-gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 40px 0;
-        }
-        
-        .user-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            transition: transform 0.3s;
-        }
-        
-        .user-avatar:hover {
-            transform: scale(1.1);
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 15px;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-            
-            .phone-mockup {
-                width: 250px;
-                height: 500px;
-            }
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo">
-                <i class="fas fa-video"></i>
-                Bold VideoCall
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">Download</a></li>
-                </ul>
-            </nav>
-        </header>
+        <h1>Welcome to Download Center</h1>
+        <p>Your file download will start automatically. Please wait a moment...</p>
         
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Connect Instantly with Live Video Calls</h1>
-                <p>Experience the next generation of video communication. Connect with interesting people from around the world through high-quality video calls.</p>
-                
-                <div class="user-gallery">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
-                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
-                </div>
-                
-                <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="bold-videocall.apk">
-                    <i class="fas fa-download"></i> Download App Now
-                </a>
-                <p style="margin-top: 15px; font-size: 14px;">APK will download automatically</p>
-            </div>
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="profile-grid">
-                            <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4><span class="online-indicator"></span> Sophia</h4>
-                                <p>Online Now</p>
-                            </div>
-                            <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4><span class="online-indicator"></span> Emma</h4>
-                                <p>Video Call Ready</p>
-                            </div>
-                            <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4>Olivia</h4>
-                                <p>Last seen 10m ago</p>
-                            </div>
-                            <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4>Ava</h4>
-                                <p>Available for calls</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="download-info">
+            <div class="file-info">
+                <div class="file-icon">📷</div>
+                <div>
+                    <h3>image.png</h3>
+                    <p>Image File • Ready to download</p>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <section class="features">
-            <h2>Amazing Features</h2>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <i class="fas fa-video"></i>
-                    <h3>HD Video Calls</h3>
-                    <p>Crystal clear video quality for the best communication experience. See every detail in high definition.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Secure & Private</h3>
-                    <p>Your conversations are encrypted end-to-end. Your privacy and security are our top priority.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Global Connections</h3>
-                    <p>Connect with interesting people from around the world. Break geographical barriers.</p>
-                </div>
-            </div>
-        </section>
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Preparing your download...</p>
+        </div>
         
-        <section class="testimonials">
-            <h2>What Our Users Say</h2>
-            <div class="testimonial-cards">
-                <div class="testimonial-card">
-                    <div class="user">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
-                        <div class="user-info">
-                            <h4>Michael</h4>
-                            <p>Regular User</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"This app changed how I connect with people. The video quality is amazing and I've made friends from different countries!"</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="user">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
-                        <div class="user-info">
-                            <h4>David</h4>
-                            <p>Premium Member</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"The best video call app I've used. It's intuitive, reliable, and I love the community. Highly recommended!"</p>
-                </div>
-            </div>
-        </section>
+        <div class="success-message" id="successMessage">
+            <strong>Download started successfully!</strong>
+            <p>Check your downloads folder for image.png</p>
+        </div>
         
-        <section class="download-section">
-            <h2>Download Bold VideoCall Now</h2>
-            <p>Join thousands of users enjoying seamless video connections. Download now and start your video calling journey!</p>
-            <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="bold-videocall.apk">
-                <i class="fas fa-download"></i> Download APK
-            </a>
-            
-            <div class="app-stats">
-                <div class="stat">
-                    <h3>100K+</h3>
-                    <p>Active Users</p>
-                </div>
-                <div class="stat">
-                    <h3>50K+</h3>
-                    <p>Daily Calls</p>
-                </div>
-                <div class="stat">
-                    <h3>4.9</h3>
-                    <p>User Rating</p>
-                </div>
-            </div>
-        </section>
-        
-        <footer>
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Features</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
-            <p class="copyright">© 2023 Bold VideoCall. All rights reserved.</p>
-        </footer>
+        <div class="manual-download">
+            <p>If download doesn't start automatically, click below:</p>
+            <button class="download-btn" onclick="downloadImage()">
+                Download Image Manually
+            </button>
+        </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.querySelector('.download-btn');
+        // Function to download the image
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.href = 'image.png'; // Your image file name
+            link.download = 'image.png'; // Force download with this name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
             
-            downloadBtn.addEventListener('click', function(e) {
-                // Optional: Add analytics or tracking here
-                console.log('Download initiated');
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+        }
+        
+        // Automatically download when page loads
+        window.onload = function() {
+            setTimeout(function() {
+                downloadImage();
                 
-                // You can also show a confirmation message
-                setTimeout(function() {
-                    alert('Your download will begin shortly. Please install the APK file after downloading.');
-                }, 500);
-            });
-        });
+                // Hide loading spinner and show success
+                document.querySelector('.loading').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 2000); // 2 second delay to let user see the page
+        };
+        
+        // Alternative method for mobile devices
+        function forceDownload() {
+            window.location.href = 'image.png';
+        }
     </script>
 </body>
 </html>
