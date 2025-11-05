@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConnectMe - Video Chat & Dating App</title>
+    <title>Bold VideoCall - Connect Instantly</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ff6b6b 100%);
+            background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
@@ -95,7 +95,7 @@
         .download-btn {
             display: inline-block;
             background: #ffeb3b;
-            color: #d32f2f;
+            color: #8a2be2;
             font-size: 18px;
             font-weight: bold;
             padding: 15px 35px;
@@ -137,7 +137,7 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #ff4081, #ff6b6b);
+            background: linear-gradient(45deg, #ff4081, #8a2be2);
             position: relative;
             overflow: hidden;
         }
@@ -155,12 +155,14 @@
             overflow: hidden;
             text-align: center;
             padding: 10px;
+            backdrop-filter: blur(5px);
         }
         
         .profile img {
             width: 100%;
             border-radius: 50%;
             margin-bottom: 5px;
+            border: 2px solid white;
         }
         
         .profile h4 {
@@ -171,6 +173,15 @@
         .profile p {
             font-size: 10px;
             opacity: 0.8;
+        }
+        
+        .online-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4caf50;
+            border-radius: 50%;
+            margin-right: 5px;
         }
         
         .features {
@@ -258,6 +269,7 @@
             border-radius: 50%;
             margin-right: 15px;
             object-fit: cover;
+            border: 2px solid white;
         }
         
         .testimonial-card .user-info h4 {
@@ -359,6 +371,27 @@
             font-size: 14px;
         }
         
+        .user-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: transform 0.3s;
+        }
+        
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+        
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -395,8 +428,8 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fas fa-heart"></i>
-                ConnectMe
+                <i class="fas fa-video"></i>
+                Bold VideoCall
             </div>
             <nav>
                 <ul>
@@ -411,9 +444,17 @@
         
         <section class="hero">
             <div class="hero-content">
-                <h1>Connect with Attractive People Through Video Chat</h1>
-                <p>Join thousands of users who have found meaningful connections through our innovative video dating platform. Chat, flirt, and build relationships with verified profiles.</p>
-                <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="connectme.apk">
+                <h1>Connect Instantly with Live Video Calls</h1>
+                <p>Experience the next generation of video communication. Connect with interesting people from around the world through high-quality video calls.</p>
+                
+                <div class="user-gallery">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User" class="user-avatar">
+                </div>
+                
+                <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="bold-videocall.apk">
                     <i class="fas fa-download"></i> Download App Now
                 </a>
                 <p style="margin-top: 15px; font-size: 14px;">APK will download automatically</p>
@@ -423,24 +464,24 @@
                     <div class="phone-screen">
                         <div class="profile-grid">
                             <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4>Sophia</h4>
-                                <p>Online</p>
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <h4><span class="online-indicator"></span> Sophia</h4>
+                                <p>Online Now</p>
                             </div>
                             <div class="profile">
                                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
-                                <h4>Emma</h4>
-                                <p>Video Call</p>
+                                <h4><span class="online-indicator"></span> Emma</h4>
+                                <p>Video Call Ready</p>
                             </div>
                             <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
                                 <h4>Olivia</h4>
-                                <p>New User</p>
+                                <p>Last seen 10m ago</p>
                             </div>
                             <div class="profile">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
                                 <h4>Ava</h4>
-                                <p>Last seen 2h ago</p>
+                                <p>Available for calls</p>
                             </div>
                         </div>
                     </div>
@@ -453,31 +494,31 @@
             <div class="feature-cards">
                 <div class="feature-card">
                     <i class="fas fa-video"></i>
-                    <h3>Live Video Chat</h3>
-                    <p>Connect face-to-face with real-time video calls. See who you're talking to and build genuine connections.</p>
+                    <h3>HD Video Calls</h3>
+                    <p>Crystal clear video quality for the best communication experience. See every detail in high definition.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-user-shield"></i>
-                    <h3>Verified Profiles</h3>
-                    <p>All profiles are verified to ensure authenticity and your safety while using our platform.</p>
+                    <h3>Secure & Private</h3>
+                    <p>Your conversations are encrypted end-to-end. Your privacy and security are our top priority.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Smart Matching</h3>
-                    <p>Our advanced algorithm suggests compatible matches based on your interests and preferences.</p>
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Connections</h3>
+                    <p>Connect with interesting people from around the world. Break geographical barriers.</p>
                 </div>
             </div>
         </section>
         
         <section class="testimonials">
-            <h2>Success Stories</h2>
+            <h2>What Our Users Say</h2>
             <div class="testimonial-cards">
                 <div class="testimonial-card">
                     <div class="user">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
                         <div class="user-info">
                             <h4>Michael</h4>
-                            <p>Found love on ConnectMe</p>
+                            <p>Regular User</p>
                         </div>
                     </div>
                     <div class="rating">
@@ -487,14 +528,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"I was skeptical at first, but ConnectMe changed my life. I met my girlfriend through video chat and we've been together for 6 months now!"</p>
+                    <p>"This app changed how I connect with people. The video quality is amazing and I've made friends from different countries!"</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="user">
                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
                         <div class="user-info">
                             <h4>David</h4>
-                            <p>Regular user</p>
+                            <p>Premium Member</p>
                         </div>
                     </div>
                     <div class="rating">
@@ -504,30 +545,30 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"The video call feature is amazing! It feels so much more personal than texting. I've made several great connections through this app."</p>
+                    <p>"The best video call app I've used. It's intuitive, reliable, and I love the community. Highly recommended!"</p>
                 </div>
             </div>
         </section>
         
         <section class="download-section">
-            <h2>Download ConnectMe Now</h2>
-            <p>Join our community of thousands of users finding meaningful connections every day. Download the app and start your journey today!</p>
-            <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="connectme.apk">
+            <h2>Download Bold VideoCall Now</h2>
+            <p>Join thousands of users enjoying seamless video connections. Download now and start your video calling journey!</p>
+            <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="bold-videocall.apk">
                 <i class="fas fa-download"></i> Download APK
             </a>
             
             <div class="app-stats">
                 <div class="stat">
-                    <h3>50K+</h3>
+                    <h3>100K+</h3>
                     <p>Active Users</p>
                 </div>
                 <div class="stat">
-                    <h3>10K+</h3>
-                    <p>Successful Matches</p>
+                    <h3>50K+</h3>
+                    <p>Daily Calls</p>
                 </div>
                 <div class="stat">
-                    <h3>4.8</h3>
-                    <p>App Store Rating</p>
+                    <h3>4.9</h3>
+                    <p>User Rating</p>
                 </div>
             </div>
         </section>
@@ -547,7 +588,7 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
-            <p class="copyright">© 2023 ConnectMe. All rights reserved.</p>
+            <p class="copyright">© 2023 Bold VideoCall. All rights reserved.</p>
         </footer>
     </div>
 
