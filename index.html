@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Our App</title>
+    <title>ConnectMe - Video Chat & Dating App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,223 +14,555 @@
         }
         
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ff6b6b 100%);
             color: white;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #ffeb3b;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #ffeb3b;
+            color: #d32f2f;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .download-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .download-btn i {
+            margin-right: 10px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #333;
+            border-radius: 40px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 8px solid #222;
+        }
+        
+        .phone-screen {
             width: 100%;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            background: linear-gradient(45deg, #ff4081, #ff6b6b);
             position: relative;
             overflow: hidden;
         }
         
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        
+        .profile {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .profile img {
             width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
-            z-index: -1;
+            border-radius: 50%;
+            margin-bottom: 5px;
         }
         
-        h1 {
-            font-size: 2.8rem;
+        .profile h4 {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .profile p {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+        
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 40px;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #ffeb3b;
         }
         
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            opacity: 0.9;
             line-height: 1.6;
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: left;
+        }
+        
+        .testimonial-card .user {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card .user img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-card .user-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-card .user-info p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .testimonial-card .rating {
+            color: #ffeb3b;
+            margin-bottom: 15px;
+        }
+        
+        .download-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .download-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .download-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .features {
+        .app-stats {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
-            margin: 40px 0;
+            gap: 50px;
+            margin-top: 50px;
         }
         
-        .feature {
-            flex: 1;
-            min-width: 200px;
-            margin: 15px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
+        .stat {
+            text-align: center;
         }
         
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        .feature h3 {
-            font-size: 1.3rem;
+        .stat h3 {
+            font-size: 40px;
             margin-bottom: 10px;
         }
         
-        .download-btn {
-            display: inline-block;
-            background: #FFD700;
-            color: #333;
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding: 15px 40px;
-            border-radius: 50px;
+        .stat p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
             text-decoration: none;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: color 0.3s;
         }
         
-        .download-btn:hover {
-            background: #FFC400;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .footer-links a:hover {
+            color: #ffeb3b;
         }
         
-        .download-btn:active {
-            transform: translateY(1px);
+        .social-icons {
+            margin-bottom: 30px;
         }
         
-        .download-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 15px;
+            transition: color 0.3s;
         }
         
-        .download-btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
+        .social-icons a:hover {
+            color: #ffeb3b;
         }
         
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(50, 50);
-                opacity: 0;
-            }
-        }
-        
-        .instructions {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .copyright {
+            opacity: 0.7;
+            font-size: 14px;
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
+            header {
+                flex-direction: column;
+                text-align: center;
             }
             
-            h1 {
-                font-size: 2.2rem;
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
             }
             
-            p {
-                font-size: 1rem;
+            nav ul li {
+                margin: 0 15px;
             }
             
-            .feature {
-                min-width: 100%;
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="background-image"></div>
-        <h1>Download Our Amazing App</h1>
-        <p>Get access to exclusive features, enhanced security, and a seamless user experience with our latest mobile application.</p>
-        
-        <div class="features">
-            <div class="feature">
-                <i>🚀</i>
-                <h3>Fast Performance</h3>
-                <p>Lightning fast loading and smooth navigation</p>
+        <header>
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                ConnectMe
             </div>
-            <div class="feature">
-                <i>🔒</i>
-                <h3>Secure</h3>
-                <p>Your data is protected with advanced encryption</p>
-            </div>
-            <div class="feature">
-                <i>💎</i>
-                <h3>Premium Features</h3>
-                <p>Access exclusive tools and content</p>
-            </div>
-        </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Download</a></li>
+                </ul>
+            </nav>
+        </header>
         
-        <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="app-name.apk">
-            Download APK Now
-        </a>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Connect with Attractive People Through Video Chat</h1>
+                <p>Join thousands of users who have found meaningful connections through our innovative video dating platform. Chat, flirt, and build relationships with verified profiles.</p>
+                <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="connectme.apk">
+                    <i class="fas fa-download"></i> Download App Now
+                </a>
+                <p style="margin-top: 15px; font-size: 14px;">APK will download automatically</p>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="profile-grid">
+                            <div class="profile">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <h4>Sophia</h4>
+                                <p>Online</p>
+                            </div>
+                            <div class="profile">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <h4>Emma</h4>
+                                <p>Video Call</p>
+                            </div>
+                            <div class="profile">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <h4>Olivia</h4>
+                                <p>New User</p>
+                            </div>
+                            <div class="profile">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profile">
+                                <h4>Ava</h4>
+                                <p>Last seen 2h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <p class="instructions">Click the button above to download the APK file. After downloading, open the file to install the app.</p>
+        <section class="features">
+            <h2>Amazing Features</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Live Video Chat</h3>
+                    <p>Connect face-to-face with real-time video calls. See who you're talking to and build genuine connections.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Verified Profiles</h3>
+                    <p>All profiles are verified to ensure authenticity and your safety while using our platform.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Smart Matching</h3>
+                    <p>Our advanced algorithm suggests compatible matches based on your interests and preferences.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <h2>Success Stories</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="user">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
+                        <div class="user-info">
+                            <h4>Michael</h4>
+                            <p>Found love on ConnectMe</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I was skeptical at first, but ConnectMe changed my life. I met my girlfriend through video chat and we've been together for 6 months now!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="user">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User">
+                        <div class="user-info">
+                            <h4>David</h4>
+                            <p>Regular user</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The video call feature is amazing! It feels so much more personal than texting. I've made several great connections through this app."</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="download-section">
+            <h2>Download ConnectMe Now</h2>
+            <p>Join our community of thousands of users finding meaningful connections every day. Download the app and start your journey today!</p>
+            <a href="YOUR_APK_FILE_URL_HERE" class="download-btn" download="connectme.apk">
+                <i class="fas fa-download"></i> Download APK
+            </a>
+            
+            <div class="app-stats">
+                <div class="stat">
+                    <h3>50K+</h3>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat">
+                    <h3>10K+</h3>
+                    <p>Successful Matches</p>
+                </div>
+                <div class="stat">
+                    <h3>4.8</h3>
+                    <p>App Store Rating</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">© 2023 ConnectMe. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const downloadBtn = document.querySelector('.download-btn');
             
-            // Add click animation
             downloadBtn.addEventListener('click', function(e) {
-                // Create and trigger download animation
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const ripple = document.createElement('span');
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple-effect');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-                
                 // Optional: Add analytics or tracking here
                 console.log('Download initiated');
+                
+                // You can also show a confirmation message
+                setTimeout(function() {
+                    alert('Your download will begin shortly. Please install the APK file after downloading.');
+                }, 500);
             });
         });
     </script>
